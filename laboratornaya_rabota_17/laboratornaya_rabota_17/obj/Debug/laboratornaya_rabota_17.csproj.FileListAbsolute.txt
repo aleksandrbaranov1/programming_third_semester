@@ -1,0 +1,16 @@
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\bin\Debug\laboratornaya_rabota_17.exe
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\bin\Debug\laboratornaya_rabota_17.pdb
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.csproj.AssemblyReference.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.csproj.ResolveComReference.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.Properties.Resources.resources
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.csproj.GenerateResource.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.csproj.CoreCompileInputs.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.exe
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.pdb
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\bin\Debug\Interop.LCC11.dll
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\Interop.LCC11.dll
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\bin\Debug\Interop.ACTIVEXLib.dll
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\Interop.ACTIVEXLib.dll
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\bin\Debug\Microsoft.Office.Interop.Word.dll
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laborato.18D39D79.Up2Date
+C:\Users\sabba\source\repos\laboratornaya_rabota_17\laboratornaya_rabota_17\obj\Debug\laboratornaya_rabota_17.wordAutomation.resources
