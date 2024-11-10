@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.Reflection;
-using System.IO;
 using Word2 = Microsoft.Office.Interop.Word;
 
 
@@ -23,25 +16,18 @@ namespace laboratornaya_rabota_17
         private string[] typeOfWork = { "Лабораторная работа", "Практическая работа", "Индивидуальное задание", 
             "Учебная практика", "Производственная практика", "Преддипломная практика"};
         private string[] numberOfWork = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-        private string selectedDocument;
         public wordAutomation()
         {
             InitializeComponent();
             reportingDocument.Items.AddRange(typeOfReportingDocument);
             workType.Items.AddRange(typeOfWork);
             number.Items.AddRange(numberOfWork);
-            //selectedDocument = comboBox1.Text;
             
         }
         private void createATitlePage_Click(object sender, EventArgs e)
         {
-
-            Word.Application wordApp = new Word.Application();
-            //MessageBox.Show($"Version of Microsoft.Office.Interop.Word: {version}");
-            //Word.Application oWord;
             Word.Document oDoc;
             Word.Paragraph oPr;
-
             Word.Application oWord = new Word.Application();
             oDoc = oWord.Documents.Add();
             oPr = oDoc.Paragraphs.Add();
@@ -96,10 +82,6 @@ namespace laboratornaya_rabota_17
             oPr.Range.Text = "";
             oPr.Range.InsertParagraphAfter();
             oPr.Range.Text = "";
-
-            //selectedDocument = comboBox1.Text;
-
-            //MessageBox.Show(selectedDocument);
 
             oPr.Range.InsertParagraphAfter();
             oPr.Range.Font.Name = "Times new roman";
