@@ -47,7 +47,7 @@ namespace laboratornaya_rabota_17
             oPr.Range.Font.Size = 14;
             oPr.Range.Text = "учреждение высшего образования";
 
-            oPr.Range.InsertParagraphAfter();
+            oPr.Range.InsertParagraphAfter(); 
             oPr.Range.Font.Name = "Times new roman";
             oPr.Range.Font.Size = 14;
             oPr.Range.Text = "«Российский университет транспорта»";
