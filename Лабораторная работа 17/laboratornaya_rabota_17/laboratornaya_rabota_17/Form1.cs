@@ -2,8 +2,7 @@
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.Reflection;
-using Word2 = Microsoft.Office.Interop.Word;
-
+using Microsoft.Office.Interop.Word;
 
 namespace laboratornaya_rabota_17
 {
@@ -24,6 +23,27 @@ namespace laboratornaya_rabota_17
             number.Items.AddRange(numberOfWork);
             
         }
+        private static void SetParagraphText(Paragraph paragraph, string text, int fontSize, string font, string alignment)
+        {
+            paragraph.Range.Text = text;
+            paragraph.Range.Font.Size = fontSize;
+            paragraph.Range.Font.Name = font;
+            switch (alignment)
+            {
+                case "Right":
+                    paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
+                    break;
+                case "Left":
+                    paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                    break;
+                case "Center":
+                    paragraph.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                    break;
+                default:
+                    break;
+            }
+            paragraph.Range.InsertParagraphAfter();
+        }
         private void createATitlePage_Click(object sender, EventArgs e)
         {
             Word.Document oDoc;
@@ -31,221 +51,90 @@ namespace laboratornaya_rabota_17
             Word.Application oWord = new Word.Application();
             oDoc = oWord.Documents.Add();
             oPr = oDoc.Paragraphs.Add();
-
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Министерство транспорта Российской Федерации";
-            oPr.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Федеральное государственное автономное образовательное";
+         
+            SetParagraphText(oPr, "Министерство транспорта Российской Федерации", 14, "Times new roman", "Center");
+            SetParagraphText(oPr, "Федеральное государственное автономное образовательное", 14, "Times new roman", "Center");
+            SetParagraphText(oPr, "учреждение высшего образования", 14, "Times new roman", "Center");
+            SetParagraphText(oPr, "«Российский университет транспорта»", 14, "Times new roman", "Center");
+            SetParagraphText(oPr, "(ФГАОУ ВО РУТ(МИИТ), РУТ (МИИТ)", 14, "Times new roman", "Center");
 
             oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "учреждение высшего образования";
 
-            oPr.Range.InsertParagraphAfter(); 
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "«Российский университет транспорта»";
+            SetParagraphText(oPr, "Институт транспортной техники и систем управления", 14, "Times new roman", "Center");
 
             oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "(ФГАОУ ВО РУТ(МИИТ), РУТ (МИИТ)";
+
+            SetParagraphText(oPr, "Кафедра «Управление и защита информации»", 14, "Times new roman", "Center");
 
             oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
+            oPr.Range.InsertParagraphAfter();
+            oPr.Range.InsertParagraphAfter();
+            oPr.Range.InsertParagraphAfter();
+            oPr.Range.InsertParagraphAfter();
+
+            string changingText = (reportingDocument.SelectedIndex >= 0 ? reportingDocument.Text : workType.Text) + " №" + number.Text;
+            SetParagraphText(oPr, changingText, 28, "Times new roman", "Center");
 
             oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Институт транспортной техники и систем управления";
+
+            SetParagraphText(oPr, $"по дисциплине: «{nameOfTheDiscipline.Text}»", 14, "Times new roman", "Center");
 
             oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
+
+            SetParagraphText(oPr, $"на тему: «{topicOfWork.Text}»", 14, "Times new roman", "Center");
 
             oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Кафедра «Управление и защита информации»";
+            oPr.Range.InsertParagraphAfter();
+
+            SetParagraphText(oPr, "Выполнил: ст. гр. ТУУ-211", 14, "Times new roman", "Right");
+            SetParagraphText(oPr, "Баранов А.А.", 14, "Times new roman", "Right");
+            SetParagraphText(oPr, "Вариант №7", 14, "Times new roman", "Right");
+            SetParagraphText(oPr, $"Проверил: {teacher.Text}", 14, "Times new roman", "Right");
 
             oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
 
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 28;
-            oPr.Range.Text = (reportingDocument.SelectedIndex >= 0 ? reportingDocument.Text : workType.Text) + " №" + number.Text;
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = $"по дисциплине: «{nameOfTheDiscipline.Text}»";
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = $"на тему: «{topicOfWork.Text}»";
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Выполнил: ст. гр. ТУУ-211";
-            oPr.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight;
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Баранов А.А.";
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Вариант №7";
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = $"Проверил: {teacher.Text}";
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-            oPr.Range.Text = "";
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Text = "";
-
-            oPr.Range.InsertParagraphAfter();
-            oPr.Range.Font.Name = "Times new roman";
-            oPr.Range.Font.Size = 14;
-            oPr.Range.Text = "Москва – 2024 г.";
-            oPr.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
-            
+            SetParagraphText(oPr, "Москва – 2024 г.", 14, "Times new roman", "Center");
             if (addReportSections.Checked)
             {
-                oPr.Range.InsertParagraphAfter();
                 oPr.Range.Font.Bold = 1;
-                oPr.Range.Font.Name = "Times new roman";
-                oPr.Range.Font.Size = 14;
-                oPr.Range.Text = "1. Цель работы";
-                oPr.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                SetParagraphText(oPr, "1. Цель работы", 14, "Times new roman", "Left");
 
                 oPr.Range.InsertParagraphAfter();
                 object breakType = Word.WdBreakType.wdPageBreak;
                 oPr.Range.InsertBreak(ref breakType);
 
-                oPr.Range.Font.Bold = 1;
-                oPr.Range.Font.Name = "Times new roman";
-                oPr.Range.Font.Size = 14;
-                oPr.Range.Text = "2. Задача";
-                oPr.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                SetParagraphText(oPr, "2. Задача", 14, "Times new roman", "Left");
 
                 oPr.Range.InsertParagraphAfter();
                 oPr.Range.InsertBreak(ref breakType);
 
-                oPr.Range.Font.Bold = 1;
-                oPr.Range.Font.Name = "Times new roman";
-                oPr.Range.Font.Size = 14;
-                oPr.Range.Text = "3. Содержательная часть";
-                oPr.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                SetParagraphText(oPr, "3. Содержательная часть", 14, "Times new roman", "Left");
 
                 oPr.Range.InsertParagraphAfter();
                 oPr.Range.InsertBreak(ref breakType);
 
-                oPr.Range.Font.Bold = 1;
-                oPr.Range.Font.Name = "Times new roman";
-                oPr.Range.Font.Size = 14;
-                oPr.Range.Text = "4. Вывод";
-                oPr.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                SetParagraphText(oPr, "4. Вывод", 14, "Times new roman", "Left");
             }
-            oDoc.SaveAs2(Application.StartupPath + "\\Титульный лист.docx");
+            oDoc.SaveAs2(System.Windows.Forms.Application.StartupPath + "\\Титульный лист.docx");
             oWord.Quit();
         }
         private void createADocument_Click(object sender, EventArgs e)
         {
-            Word2.Application oWord2 = new Word.Application();
-            Word2.Document oDoc2 = oWord2.Documents.Add();
-            Word2.Paragraph oPr2 = oDoc2.Paragraphs.Add();
-            Word2.Table oTab;
-
-            Word2.Table table = oDoc2.Tables.Add(oDoc2.Range(0, 0), 48, 1);
-
+           
+            Word.Application oWord2 = new Word.Application();
+            Word.Document oDoc2 = oWord2.Documents.Add();
+            Word.Paragraph oPr2 = oDoc2.Paragraphs.Add();
+            Word.Table table = oDoc2.Tables.Add(oDoc2.Range(0, 0), 48, 1);
             foreach (Word.Row row in table.Rows)
             {
                 row.Height = 11; 
                 row.HeightRule = Word.WdRowHeightRule.wdRowHeightExactly;
             }
-            table.Cell(1, 1).Range.Text = "Наименование министерства (ведомства)";
-            table.Cell(1, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            table.Cell(1, 1).Range.Font.Size = 12;
-
             table.Rows.Height = 15;
-
-            table.Cell(2, 1).Range.Text = "ПОЛНОЕ НАИМЕНОВАНИЕ ОРГАНИЗАЦИИ – ИСПОЛНИТЕЛЬ НИР";
-            table.Cell(2, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            table.Cell(2, 1).Range.Font.Size = 12;
-
-            table.Cell(3, 1).Range.Text = "(СОКРАЩЕННОЕ НАИМЕНОВАНИЕ ОРГАНИЗАЦИИ – ИМПОЛНИТЕЛЬ НИР)";
-            table.Cell(3, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            table.Cell(3, 1).Range.Font.Size = 12;
-
             table.Cell(4, 1).Merge(table.Cell(6, 1));
-
-            table.Cell(5, 1).Range.Text = "Индекс УДК";
-            table.Cell(5, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphLeft;
-            table.Cell(5, 1).Range.Font.Size = 12;
-
-            table.Cell(6, 1).Range.Text = "ИРег. № НИОКТР";
-            table.Cell(6, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphLeft;
-            table.Cell(6, 1).Range.Font.Size = 12;
-
-            table.Cell(7, 1).Range.Text = "Рег. № ИКРБС";
-            table.Cell(7, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphLeft;
-            table.Cell(7, 1).Range.Font.Size = 12;
-
-            table.Cell(8, 1).Merge(table.Cell(10, 1)); // 8я строка
-
+            table.Cell(8, 1).Merge(table.Cell(10, 1));
             table.Cell(9, 1).Split(1, 2);
-            table.Cell(9, 1).Range.Text = "СОГЛАСОВАНО";
-            table.Cell(9, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphLeft;
-            table.Cell(9, 1).Range.Font.Size = 12;
-
-            table.Cell(9, 2).Range.Text = "УТВЕРЖДАЮ";
-            table.Cell(9, 2).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphLeft;
-            table.Cell(9, 2).Range.Font.Size = 12;
-
             table.Cell(10, 1).Split(1, 2);
-            table.Cell(10, 1).Range.Text = "Должность, сокращ. наимен. орг.";
-            table.Cell(10, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphLeft;
-            table.Cell(10, 1).Range.Font.Size = 12;
-
-            table.Cell(10, 2).Range.Text = "Должность, сокращ. наимен. орг.";
-            table.Cell(10, 2).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphLeft;
-            table.Cell(10, 2).Range.Font.Size = 12;
-
-
             table.Cell(12, 1).Split(1, 2);
             table.Cell(12, 1).Split(1, 2);
             table.Cell(12, 1).Split(1, 2);
@@ -253,168 +142,140 @@ namespace laboratornaya_rabota_17
             table.Cell(12, 1).Split(1, 2);
             table.Cell(12, 1).Split(1, 2);
             table.Cell(12, 1).Split(1, 2);
-
-            //12 строка 1 ячейка
-            //Word2.Cell cell1 = table.Cell(12, 1);
             table.Cell(12, 1).Width = 85;
-            table.Cell(12, 1).Range.Text = "подпись";
-            table.Cell(12, 1).Range.Font.Size = 8;
-            table.Cell(12, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            Word2.Border topBorder = table.Cell(12, 1).Borders[Word.WdBorderType.wdBorderTop];
+            Word.Border topBorder = table.Cell(12, 1).Borders[Word.WdBorderType.wdBorderTop];
             topBorder.LineStyle = Word.WdLineStyle.wdLineStyleSingle;  
             topBorder.LineWidth = Word.WdLineWidth.wdLineWidth025pt;  
             topBorder.Color = Word.WdColor.wdColorBlack;
-
-            //Word2.Cell cell2 = table.Cell(12, 2);
             table.Cell(12, 2).Width = 14;
-
-            //12 строка 3 ячейка 
-            //Word2.Cell cell3 = table.Cell(12, 3);
             table.Cell(12, 3).Width = 92;
-            table.Cell(12, 3).Range.Text = "расшифровка подписи";
-            table.Cell(12, 3).Range.Font.Size = 8;
-            table.Cell(12, 3).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            Word2.Border topBorder2 = table.Cell(12, 3).Borders[Word.WdBorderType.wdBorderTop];
+            Word.Border topBorder2 = table.Cell(12, 3).Borders[Word.WdBorderType.wdBorderTop];
             topBorder2.LineStyle = Word.WdLineStyle.wdLineStyleSingle; 
             topBorder2.LineWidth = Word.WdLineWidth.wdLineWidth025pt;   
             topBorder2.Color = Word.WdColor.wdColorBlack;
-
-            //Word2.Cell cell4 = table.Cell(12, 4);
             table.Cell(12, 4).Width = 41;
-
-            //12 строка 5 ячейка
-            //Word2.Cell cell5 = table.Cell(12, 5);
             table.Cell(12, 5).Width = 77;
-            table.Cell(12, 5).Range.Text = "подпись";
-            table.Cell(12, 5).Range.Font.Size = 8;
-            table.Cell(12, 5).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            Word2.Border topBorder3 = table.Cell(12, 5).Borders[Word.WdBorderType.wdBorderTop];
+            Word.Border topBorder3 = table.Cell(12, 5).Borders[Word.WdBorderType.wdBorderTop];
             topBorder3.LineStyle = Word.WdLineStyle.wdLineStyleSingle;  
             topBorder3.LineWidth = Word.WdLineWidth.wdLineWidth025pt;   
             topBorder3.Color = Word.WdColor.wdColorBlack;
-
-            //Word2.Cell cell6 = table.Cell(12, 6);
             table.Cell(12, 6).Width = 14;
-
-            //12 строка 7 ячейка
-            //Word2.Cell cell7 = table.Cell(12, 7);
             table.Cell(12, 7).Width = 92;
-            table.Cell(12, 7).Range.Text = "расшифровка подписи";
-            table.Cell(12, 7).Range.Font.Size = 8;
-            table.Cell(12, 7).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            Word2.Border topBorder4 = table.Cell(12, 7).Borders[Word.WdBorderType.wdBorderTop];
+            Word.Border topBorder4 = table.Cell(12, 7).Borders[Word.WdBorderType.wdBorderTop];
             topBorder4.LineStyle = Word.WdLineStyle.wdLineStyleSingle; 
             topBorder4.LineWidth = Word.WdLineWidth.wdLineWidth025pt;   
             topBorder4.Color = Word.WdColor.wdColorBlack;
-
-            //Word2.Cell cell8 = table.Cell(12, 8);
             table.Cell(12, 8).Width = 53;
-
             table.Cell(14, 1).Split(1, 2);
             table.Cell(14, 1).Split(1, 2);
             table.Cell(14, 3).Split(1, 2);
             table.Cell(14, 4).Split(1, 2);
-
-            //14 строка 1 ячейка
-            //Word2.Cell cell12 = table.Cell(14, 1);
             table.Cell(14, 1).Width = 163;
-            table.Cell(14, 1).Range.Text = "дата";
-            table.Cell(14, 1).Range.Font.Size= 8;
-            table.Cell(14, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            Word2.Border topBorder5 = table.Cell(14, 1).Borders[Word.WdBorderType.wdBorderTop];
+            Word.Border topBorder5 = table.Cell(14, 1).Borders[Word.WdBorderType.wdBorderTop];
             topBorder5.LineStyle = Word.WdLineStyle.wdLineStyleSingle;
             topBorder5.LineWidth = Word.WdLineWidth.wdLineWidth025pt;
-
             table.Cell(14, 2).Width = 71;
             table.Cell(14, 3).Width = 29;
-
-            //14 строка 4 ячейка
-            //Word2.Cell cell42 = table.Cell(14, 4);
             table.Cell(14, 4).Width = 156;
-            table.Cell(14, 4).Range.Text = "дата";
-            table.Cell(14, 4).Range.Font.Size = 8;
-            table.Cell(14, 4).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            Word2.Border topBorder6 = table.Cell(14, 4).Borders[Word.WdBorderType.wdBorderTop];
+            Word.Border topBorder6 = table.Cell(14, 4).Borders[Word.WdBorderType.wdBorderTop];
             topBorder6.LineStyle = Word.WdLineStyle.wdLineStyleSingle;
             topBorder6.LineWidth = Word.WdLineWidth.wdLineWidth025pt;
-
             table.Cell(14, 5).Width = 49;
-
-            table.Cell(15, 1).Merge(table.Cell(20, 1)); //16 строка
-
-            table.Cell(17, 1).Range.Text = "ОТЧЕТ";
-            table.Cell(17, 1).Range.Font.Size = 11;
-            table.Cell(17, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            table.Cell(18, 1).Range.Text = "О НАУЧНО-ИССЛЕДОВАТЕЛЬСКОЙ РАБОТЕ";
-            table.Cell(18, 1).Range.Font.Size = 11;
-            table.Cell(18, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            table.Cell(20, 1).Range.Text = "Наименование НИР";
-            table.Cell(20, 1).Range.Font.Size = 11;
-            table.Cell(20, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            table.Cell(21, 1).Range.Text = "по теме:";
-            table.Cell(21, 1).Range.Font.Size = 11;
-            table.Cell(21, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            table.Cell(22, 1).Range.Text = "НАИМЕНОВАНИЕ ОТЧЕТА";
-            table.Cell(22, 1).Range.Font.Size = 11;
-            table.Cell(22, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            table.Cell(23, 1).Range.Text = "(вид отчета, № этапа)";
-            table.Cell(23, 1).Range.Font.Size = 11;
-            table.Cell(23, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-
-            table.Cell(25, 1).Range.Text = "Наименование федеральной программы";
-            table.Cell(25, 1).Range.Font.Size = 11;
-            table.Cell(25, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            table.Cell(26, 1).Range.Text = "Номер книги";
-            table.Cell(26, 1).Range.Font.Size = 11;
-            table.Cell(26, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-
-            table.Cell(27, 1).Merge(table.Cell(32, 1)); // 28 строка
-
+            table.Cell(15, 1).Merge(table.Cell(20, 1)); 
+            table.Cell(26, 1).Merge(table.Cell(30, 1));
             table.Cell(28, 1).Split(1, 3);
             table.Cell(28, 1).Width = 128;
             table.Cell(28, 2).Width = 106;
-            table.Cell(28, 2).Range.Text = "Руководитель НИР,";
-            table.Cell(28, 2).Range.Font.Size = 11;
             table.Cell(28, 3).Width = 233;
-
             table.Cell(29, 1).Split(1, 3);
             table.Cell(29, 1).Width = 128;
             table.Cell(29, 2).Width = 106;
-            table.Cell(29, 2).Range.Text = "должность";
-            table.Cell(29, 2).Range.Font.Size = 11;
             table.Cell(29, 3).Width = 233;
-            table.Cell(29, 3).Range.Text = "ФИО";
-            table.Cell(29, 3).Range.Font.Size = 11;
-            table.Cell(29, 3).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
-            
+
             table.Cell(30, 1).Split(1, 4);
             table.Cell(30, 1).Width = 234;
             table.Cell(30, 2).Width = 28;
             table.Cell(30, 3).Width = 78;
-            table.Cell(30, 3).Range.Text = "подпись, дата";
-            table.Cell(30, 3).Range.Font.Size = 8;
-            table.Cell(30, 3).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphRight;
-            Word2.Border topBorder7 = table.Cell(30, 3).Borders[Word.WdBorderType.wdBorderTop];
+            Word.Border topBorder7 = table.Cell(30, 3).Borders[Word.WdBorderType.wdBorderTop];
             topBorder7.LineStyle = Word.WdLineStyle.wdLineStyleSingle;
             topBorder7.LineWidth = Word.WdLineWidth.wdLineWidth025pt;
             table.Cell(30, 4).Width = 127;
+            //table.Cell(31, 1).Merge(table.Cell(33, 1));
+            table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleNone;
 
-            table.Cell(31, 1).Merge(table.Cell(33, 1));
+            string[,] data = {
+                {"Наименование министерства (ведомства)", "", "", "", "", "", "", ""},
+                {"ПОЛНОЕ НАИМЕНОВАНИЕ ОРГАНИЗАЦИИ – ИСПОЛНИТЕЛЬ НИР", "", "", "", "", "", "", ""},
+                {"(СОКРАЩЕННОЕ НАИМЕНОВАНИЕ ОРГАНИЗАЦИИ – ИМПОЛНИТЕЛЬ НИР)", "", "", "", "", "", "", ""},
+                {"", "", "", "", "", "", "", ""},
+                {"Индекс УДК", "", "", "", "", "", "", ""},
+                {"Рег. № НИОКТР", "", "", "", "", "", "", ""},
+                {"Рег. № ИКРБС", "", "", "", "", "", "", ""},
+                {"", "", "", "", "", "", "", ""},
+                {"СОГЛАСОВАНО", "УТВЕРЖДАЮ", "", "", "", "", "", ""},
+                {"Должность, сокращ. наимен. орг.", "Должность, сокращ. наимен. орг.", "", "", "", "", "", ""},
+                {"", "", "", "", "", "", "", ""},
+                {"подпись", "", "расшифровка подписи", "", "подпись", "", "расшифровка подписи", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "дата", "", "", "дата", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "ОТЧЕТ", "", "", "", "", "", "", ""},
+                { "О НАУЧНО-ИССЛЕДОВАТЕЛЬСКОЙ РАБОТЕ", "", "", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "Наименование НИР", "", "", "", "", "", "", ""},
+                { "по теме:", "", "", "", "", "", "", ""},
+                { "НАИМЕНОВАНИЕ ОТЧЕТА", "", "", "", "", "", "", ""},
+                { "(вид отчета, № этапа)", "", "", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "Наименование федеральной программы", "", "", "", "", "", "", ""},
+                { "Номер книги", "", "", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "", "Руководитель НИР,", "", "", "", "", "", ""},
+                { "", "должность", "ФИО", "", "", "", "", ""},
+                { "", "", "подпись, дата", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "", "", "", "", "", "", "", ""},
+                { "Место Год", "", "", "", "", "", "", ""}
+            };
 
-            table.Cell(32, 1).Range.Text = "Место Год";
-            table.Cell(32, 1).Range.Font.Size = 11;
-            table.Cell(32, 1).Range.ParagraphFormat.Alignment = Word2.WdParagraphAlignment.wdAlignParagraphCenter;
+            for (int i = 1; i <= 35; i++)
+            {
+                for (int j = 1; j <= 8; j++)
+                {
+                    try
+                    {
+                        table.Cell(i, j).Range.Text = data[i - 1, j - 1];
+                        table.Cell(i, j).Range.Font.Size = 11;
+                        table.Cell(i, j).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                    }
+                    catch
+                    {
+                        
+                    }
+                }
+            }
+            //Настройка отдельных ячеек
+            table.Cell(5, 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(6, 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(7, 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(9, 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(9, 2).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(10, 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(10, 2).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(12, 1).Range.Font.Size = 8;
+            table.Cell(12, 3).Range.Font.Size = 8;
+            table.Cell(12, 5).Range.Font.Size = 8;
+            table.Cell(12, 7).Range.Font.Size = 8;
+            table.Cell(14, 1).Range.Font.Size = 8;
+            table.Cell(14, 4).Range.Font.Size = 8;
+            table.Cell(28, 2).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(29, 2).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Cell(30, 3).Range.Font.Size = 8;
 
-            table.Borders.OutsideLineStyle = Word2.WdLineStyle.wdLineStyleNone;
-
-            oDoc2.SaveAs2(Application.StartupPath + "\\Индивидуальный документ.docx");
+            oDoc2.SaveAs2(System.Windows.Forms.Application.StartupPath + "\\Индивидуальный документ.docx");
             oWord2.Quit();
         }
     }
