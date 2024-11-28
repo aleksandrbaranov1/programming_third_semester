@@ -1,0 +1,6 @@
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\ExcelHelpers\bin\Debug\ExcelHelpers.dll
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\ExcelHelpers\bin\Debug\ExcelHelpers.pdb
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\ExcelHelpers\obj\Debug\ExcelHelpers.csproj.AssemblyReference.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\ExcelHelpers\obj\Debug\ExcelHelpers.csproj.CoreCompileInputs.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\ExcelHelpers\obj\Debug\ExcelHelpers.dll
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\ExcelHelpers\obj\Debug\ExcelHelpers.pdb

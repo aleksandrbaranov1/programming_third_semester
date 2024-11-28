@@ -1,0 +1,6 @@
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\laboratornaya_rabota_18\obj\Debug\laboratornaya_rabota_18.csproj.AssemblyReference.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\laboratornaya_rabota_18\obj\Debug\laboratornaya_rabota_18.csproj.ResolveComReference.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\laboratornaya_rabota_18\obj\Debug\laboratornaya_rabota_18.Form1.resources
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\laboratornaya_rabota_18\obj\Debug\laboratornaya_rabota_18.Properties.Resources.resources
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\laboratornaya_rabota_18\obj\Debug\laboratornaya_rabota_18.csproj.GenerateResource.cache
+C:\Users\sabba\source\repos\laboratornaya_rabota_18\laboratornaya_rabota_18\obj\Debug\laboratornaya_rabota_18.csproj.CoreCompileInputs.cache
