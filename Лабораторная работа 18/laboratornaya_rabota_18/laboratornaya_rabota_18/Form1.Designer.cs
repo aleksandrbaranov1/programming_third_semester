@@ -1,6 +1,6 @@
 ﻿namespace laboratornaya_rabota_18
 {
-    partial class Form1
+    partial class laboratornaya_rabota_18
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.previewTable = new System.Windows.Forms.DataGridView();
             this.preview = new System.Windows.Forms.Button();
             this.exportIntoExcel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // previewTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1366, 272);
-            this.dataGridView1.TabIndex = 0;
+            this.previewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.previewTable.Location = new System.Drawing.Point(12, 12);
+            this.previewTable.Name = "previewTable";
+            this.previewTable.RowHeadersWidth = 51;
+            this.previewTable.RowTemplate.Height = 24;
+            this.previewTable.Size = new System.Drawing.Size(1366, 272);
+            this.previewTable.TabIndex = 0;
             // 
             // preview
             // 
@@ -64,25 +64,25 @@
             this.exportIntoExcel.UseVisualStyleBackColor = true;
             this.exportIntoExcel.Click += new System.EventHandler(this.exportIntoExcel_Click);
             // 
-            // Form1
+            // laboratornaya_rabota_18
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1390, 388);
             this.Controls.Add(this.exportIntoExcel);
             this.Controls.Add(this.preview);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Controls.Add(this.previewTable);
+            this.Name = "laboratornaya_rabota_18";
             this.Text = "Задание №18 выполнил: Баранов А.А., номер варианта: 7, дата выполнения: 30.11.202" +
     "4";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewTable)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView previewTable;
         private System.Windows.Forms.Button preview;
         private System.Windows.Forms.Button exportIntoExcel;
     }

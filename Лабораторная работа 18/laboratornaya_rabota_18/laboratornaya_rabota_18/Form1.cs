@@ -7,9 +7,9 @@ using ExcelHelpers;
 
 namespace laboratornaya_rabota_18
 {
-    public partial class Form1 : Form
+    public partial class laboratornaya_rabota_18 : Form
     {
-        public Form1()
+        public laboratornaya_rabota_18()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace laboratornaya_rabota_18
             string dataCsvPath = @"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Лабораторная работа 18\laboratornaya_rabota_18\laboratornaya_rabota_18\bin\Debug\dataCsv.csv.txt";
             foreach (string header in headers)
             {
-                dataGridView1.Columns.Add(header, header);
+                previewTable.Columns.Add(header, header);
             }
 
             StreamReader reader = new StreamReader(dataCsvPath);
@@ -28,7 +28,7 @@ namespace laboratornaya_rabota_18
             {
                 string line = reader.ReadLine();
                 string[] row = line.Split(new char[] { ';' });
-                dataGridView1.Rows.Add(row);
+                previewTable.Rows.Add(row);
             }
             reader.Close();
         }
