@@ -17,7 +17,7 @@ namespace laboratornaya_rabota_18
         private void preview_Click(object sender, EventArgs e)
         {
             string[] headers = "класс предмет;вид работы;1;2;3;4;5;6;7;8;9;10;11".Split(new char[] { ';' });
-            string dataCsvPath = @"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\laboratornaya_rabota_18\laboratornaya_rabota_18\bin\Debug\dataCsv.csv.txt";
+            string dataCsvPath = @"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Лабораторная работа 18\laboratornaya_rabota_18\laboratornaya_rabota_18\bin\Debug\dataCsv.csv.txt";
             foreach (string header in headers)
             {
                 dataGridView1.Columns.Add(header, header);
@@ -36,7 +36,7 @@ namespace laboratornaya_rabota_18
         private void exportIntoExcel_Click(object sender, EventArgs e)
         {
             string[] headers = "класс предмет;вид работы;1;2;3;4;5;6;7;8;9;10;11".Split(new char[] { ';' });
-            string dataCsvPath = @"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\laboratornaya_rabota_18\laboratornaya_rabota_18\bin\Debug\dataCsv.csv.txt";
+            string dataCsvPath = @"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Лабораторная работа 18\laboratornaya_rabota_18\laboratornaya_rabota_18\bin\Debug\dataCsv.csv.txt";
             Excel.Application app = new Excel.Application();
             app.Visible = false;
             Excel.Workbook wb = app.Workbooks.Add(Missing.Value);
