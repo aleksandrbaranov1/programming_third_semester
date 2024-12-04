@@ -1,0 +1,13 @@
+C:\Users\sabba\source\repos\coursework\coursework\bin\Debug\coursework.exe.config
+C:\Users\sabba\source\repos\coursework\coursework\bin\Debug\coursework.exe
+C:\Users\sabba\source\repos\coursework\coursework\bin\Debug\coursework.pdb
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.csproj.AssemblyReference.cache
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.Form1.resources
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.Properties.Resources.resources
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.csproj.GenerateResource.cache
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.csproj.CoreCompileInputs.cache
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.exe
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.pdb
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\Interop.ACTIVEXLib.dll
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.csproj.ResolveComReference.cache
+C:\Users\sabba\source\repos\coursework\coursework\obj\Debug\coursework.Form2.resources
