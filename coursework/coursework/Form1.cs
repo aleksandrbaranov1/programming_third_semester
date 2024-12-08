@@ -29,9 +29,9 @@ namespace coursework
         }
         private static string ConvertCellToString(Word.Cell cell)
         {
-            
+
             string cellText = cell.Range.Text.Trim();
-            cellText = cellText.Trim('\r', '\a'); 
+            cellText = cellText.Trim('\r', '\a');
             cellText = cellText.Replace("\n", " ").Replace("\r", " ");
             return cellText;
         }
@@ -60,8 +60,8 @@ namespace coursework
 
             //MessageBox.Show("Дождитесь уонца считывания данных");
 
-            string path =  $@"C:\Users\sabba\source\repos\coursework\coursework\bin\Debug\Documents\{selectionDocument.Text}.docx";
-            string pathToData = $@"C:\Users\sabba\source\repos\coursework\coursework\bin\Debug\data.csv.txt";
+            string path = $@"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\Documents\{ selectionDocument.Text}.docx";
+            string pathToData = $@"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\data.csv.txt";
 
             Word.Document oDoc;
             Word.Paragraph oPr;
@@ -82,6 +82,7 @@ namespace coursework
                         try
                         {
                             string cellText = ConvertCellToString(table.Cell(i, j));
+                            
                             rowData += cellText + (j == table.Rows[i].Cells.Count ? "" : ";");
                         }
                         catch
@@ -89,7 +90,7 @@ namespace coursework
 
                         }
                     }
-                    //writer.WriteLine(rowData);
+                    writer.WriteLine(rowData);
                     //progressBar1.PerformStep();
                     int progressPercentage = (i * 100) / row;
                     progressForm.UpdateProgress(progressPercentage);
@@ -107,8 +108,8 @@ namespace coursework
 
         private void importIntoWord_Click(object sender, EventArgs e)
         {
-            string path = $@"C:\Users\sabba\source\repos\coursework\coursework\bin\Debug\Documents\{selectionDocument.Text}.docx";
-            string pathToData = $@"C:\Users\sabba\source\repos\coursework\coursework\bin\Debug\data.csv.txt";
+            string path = $@"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\Documents\{selectionDocument.Text}.docx";
+            string pathToData = $@"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\data.csv.txt";
 
             using (StreamReader reader = new StreamReader(pathToData))
             {
@@ -134,7 +135,14 @@ namespace coursework
                             {
                                 try
                                 {
-                                    table.Cell(currentRow + 1, j).Range.Text = cells[j - 1]; 
+                                    //MessageBox.Show(table.Cell(currentRow + 1, j).Range.Text);
+
+                                    Word.Range sourceRange = table.Cell(currentRow + 1, j).Range;
+                                    
+                                    table.Cell(currentRow + 1, j).Range.Text = sourceRange.Text;
+                                    table.Cell(currentRow + 1, j).Range.Font.Bold = sourceRange.Font.Bold;
+                                    table.Cell(currentRow + 1, j).Range.Text = cells[j - 1];
+                                    table.Cell(currentRow + 1, j).Range.ParagraphFormat.Alignment = sourceRange.ParagraphFormat.Alignment;
                                 }
                                 catch
                                 {
@@ -145,7 +153,7 @@ namespace coursework
                         currentRow++; 
                     }
                 }
-
+                MessageBox.Show("завершено");
                 oDoc.Save(); 
                 oDoc.Close(false);
                 oWord.Quit();
