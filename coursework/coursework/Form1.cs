@@ -29,21 +29,17 @@ namespace coursework
         }
         private static string ConvertCellToString(Word.Cell cell)
         {
-            // Получаем текст из ячейки
-            string cellText = cell.Range.Text;
-
-            // Удаляем символы конца ячейки (\a) и лишние пробелы
-            cellText = cellText.Trim('\a').Trim();
-
-            // Оставляем переносы строк (не удаляем \n и \r)
-            return cellText;
-
             /*
+            string cellText = cell.Range.Text;
+            cellText = cellText.Trim('\a').Trim();
+            return cellText;
+            */
+            
             string cellText = cell.Range.Text.Trim();
             cellText = cellText.Trim('\r', '\a');
             cellText = cellText.Replace("\n", " ").Replace("\r", " ");
             return cellText;
-             */
+            
         }
         private static (int, int) getMaxRowsAndColumns(Table table)
         {
@@ -145,20 +141,15 @@ namespace coursework
                                 {
                                     Word.Range targetRange = table.Cell(currentRow + 1, j).Range;
 
-                                    // Сохраняем исходные свойства форматирования
                                     Word.Font originalFont = targetRange.Font.Duplicate;
                                     ParagraphFormat originalFormat = targetRange.ParagraphFormat.Duplicate;
 
-                                    // Записываем новый текст
                                     targetRange.Text = cells[j - 1];
-
-                                    // Применяем сохраненное форматирование
                                     targetRange.Font = originalFont;
                                     targetRange.ParagraphFormat = originalFormat;
                                 }
                                 catch
                                 {
-                                    // Игнорируем ошибки
                                 }
                             }
                         }
