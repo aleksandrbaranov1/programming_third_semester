@@ -29,11 +29,21 @@ namespace coursework
         }
         private static string ConvertCellToString(Word.Cell cell)
         {
+            // Получаем текст из ячейки
+            string cellText = cell.Range.Text;
 
+            // Удаляем символы конца ячейки (\a) и лишние пробелы
+            cellText = cellText.Trim('\a').Trim();
+
+            // Оставляем переносы строк (не удаляем \n и \r)
+            return cellText;
+
+            /*
             string cellText = cell.Range.Text.Trim();
             cellText = cellText.Trim('\r', '\a');
             cellText = cellText.Replace("\n", " ").Replace("\r", " ");
             return cellText;
+             */
         }
         private static (int, int) getMaxRowsAndColumns(Table table)
         {
@@ -68,7 +78,7 @@ namespace coursework
             Word.Application oWord = new Word.Application();
             oDoc = oWord.Documents.Open(path);
             oPr = oDoc.Paragraphs.Add();
-            StreamWriter writer = new StreamWriter(pathToData);
+            StreamWriter writer = new StreamWriter(pathToData, false, Encoding.UTF8);
             for (int t = 1; t <= oDoc.Tables.Count; t++)
             {
                 Table table = oDoc.Tables[t];
@@ -111,17 +121,16 @@ namespace coursework
             string path = $@"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\Documents\{selectionDocument.Text}.docx";
             string pathToData = $@"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\data.csv.txt";
 
-            using (StreamReader reader = new StreamReader(pathToData))
+            using (StreamReader reader = new StreamReader(pathToData, Encoding.UTF8))
             {
-                Word.Document oDoc;
                 Word.Application oWord = new Word.Application();
-                oDoc = oWord.Documents.Open(path);
-                oWord.Visible = true; 
+                Word.Document oDoc = oWord.Documents.Open(path);
+                oWord.Visible = true;
 
                 for (int t = 1; t <= oDoc.Tables.Count; t++)
                 {
                     Table table = oDoc.Tables[t];
-                    int currentRow = 0; 
+                    int currentRow = 0;
 
                     while (!reader.EndOfStream && currentRow < table.Rows.Count)
                     {
@@ -130,35 +139,39 @@ namespace coursework
 
                         for (int j = 1; j <= table.Columns.Count; j++)
                         {
-                            
                             if (j - 1 < cells.Length)
                             {
                                 try
                                 {
-                                    //MessageBox.Show(table.Cell(currentRow + 1, j).Range.Text);
+                                    Word.Range targetRange = table.Cell(currentRow + 1, j).Range;
 
-                                    Word.Range sourceRange = table.Cell(currentRow + 1, j).Range;
-                                    
-                                    table.Cell(currentRow + 1, j).Range.Text = sourceRange.Text;
-                                    table.Cell(currentRow + 1, j).Range.Font.Bold = sourceRange.Font.Bold;
-                                    table.Cell(currentRow + 1, j).Range.Text = cells[j - 1];
-                                    table.Cell(currentRow + 1, j).Range.ParagraphFormat.Alignment = sourceRange.ParagraphFormat.Alignment;
+                                    // Сохраняем исходные свойства форматирования
+                                    Word.Font originalFont = targetRange.Font.Duplicate;
+                                    ParagraphFormat originalFormat = targetRange.ParagraphFormat.Duplicate;
+
+                                    // Записываем новый текст
+                                    targetRange.Text = cells[j - 1];
+
+                                    // Применяем сохраненное форматирование
+                                    targetRange.Font = originalFont;
+                                    targetRange.ParagraphFormat = originalFormat;
                                 }
                                 catch
                                 {
-                                   
+                                    // Игнорируем ошибки
                                 }
                             }
                         }
-                        currentRow++; 
+                        currentRow++;
                     }
                 }
                 MessageBox.Show("завершено");
-                oDoc.Save(); 
+                oDoc.Save();
                 oDoc.Close(false);
                 oWord.Quit();
             }
         }
+
 
         private void importIntoExcel_Click(object sender, EventArgs e)
         {
