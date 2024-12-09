@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|c:\\users\\flash\\documents\\git\\\u0442\u0443\u0443-211 (2024)\\\u0431\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|solutionrelative:coursework\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|c:\\users\\flash\\documents\\git\\\u0442\u0443\u0443-211 (2024)\\\u0431\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|solutionrelative:coursework\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|c:\\users\\flash\\documents\\git\\\u0442\u0443\u0443-211 (2024)\\\u0431\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmloading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|solutionrelative:coursework\\frmloading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|c:\\users\\flash\\documents\\git\\\u0442\u0443\u0443-211 (2024)\\\u0431\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmloading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A590F1B5-B32C-4C89-A3C7-749B8F384506}|coursework\\coursework.csproj|solutionrelative:coursework\\frmloading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\bin\\Debug\\data.csv.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:coursework\\bin\\Debug\\data.csv.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmMain.cs",
+              "RelativeDocumentMoniker": "coursework\\frmMain.cs",
+              "ToolTip": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmMain.cs",
+              "RelativeToolTip": "coursework\\frmMain.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAWwG4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T20:56:26.065Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "data.csv.txt",
+              "DocumentMoniker": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\bin\\Debug\\data.csv.txt",
+              "RelativeDocumentMoniker": "coursework\\bin\\Debug\\data.csv.txt",
+              "ToolTip": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\bin\\Debug\\data.csv.txt",
+              "RelativeToolTip": "coursework\\bin\\Debug\\data.csv.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-04T00:14:08.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmLoading.cs",
+              "DocumentMoniker": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmLoading.cs",
+              "RelativeDocumentMoniker": "coursework\\frmLoading.cs",
+              "ToolTip": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmLoading.cs",
+              "RelativeToolTip": "coursework\\frmLoading.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T11:57:16.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmLoading.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmLoading.cs",
+              "RelativeDocumentMoniker": "coursework\\frmLoading.cs",
+              "ToolTip": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmLoading.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "coursework\\frmLoading.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T11:50:53.455Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmMain.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmMain.Designer.cs",
+              "RelativeDocumentMoniker": "coursework\\frmMain.Designer.cs",
+              "ToolTip": "C:\\Users\\flash\\Documents\\GIT\\\u0422\u0423\u0423-211 (2024)\\\u0411\u0430\u0440\u0430\u043D\u043E\u0432\\programming_third_semester\\coursework\\coursework\\frmMain.Designer.cs",
+              "RelativeToolTip": "coursework\\frmMain.Designer.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAArwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T11:35:18.786Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
