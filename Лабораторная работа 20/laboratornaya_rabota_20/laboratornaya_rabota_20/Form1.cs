@@ -13,9 +13,9 @@ namespace laboratornaya_rabota_20
         {
             InitializeComponent();
 
-            for (int i = 1; i <= 21; i++)
+            for (double i = -1.0; i <= 0.05; i+=0.05)
             {
-                lineSelector.Items.Add(i.ToString());
+                lineSelector.Items.Add(Math.Round(i, 2).ToString());
             }
 
         }
@@ -26,7 +26,7 @@ namespace laboratornaya_rabota_20
             mainChart.ChartAreas.Clear();
             mainChart.Annotations.Clear();
 
-            // Настройка области графика
+        
             ChartArea chartArea = new ChartArea
             {
                 AxisY =
@@ -37,9 +37,9 @@ namespace laboratornaya_rabota_20
                 }
             };
 
-            // Визуальная настройка оси X
-            chartArea.AxisX.Minimum = 0; // Начало визуальной оси X
-            chartArea.AxisX.Maximum = 8; // Количество равных визуальных интервалов
+           
+            chartArea.AxisX.Minimum = 0; 
+            chartArea.AxisX.Maximum = 8;
             chartArea.AxisX.Interval = 1;
 
             chartArea.AxisX.MajorGrid.LineColor = Color.LightGray;
@@ -49,13 +49,13 @@ namespace laboratornaya_rabota_20
 
             mainChart.ChartAreas.Add(chartArea);
 
-            // Установка пользовательских меток для оси X
-            double[] realIntervals = { 0, 20, 30, 40, 50, 60, 70, 80, 90 }; // Настоящие интервалы
+          
+            double[] realIntervals = { 0, 20, 30, 40, 50, 60, 70, 80, 90 };
             for (int i = 0; i < realIntervals.Length - 1; i++)
             {
                 string label = $"{realIntervals[i]}";
-                double start = i - 0.5; // Начало диапазона метки
-                double end = i + 0.5;   // Конец диапазона метки
+                double start = i - 0.5; 
+                double end = i + 0.5;  
                 chartArea.AxisX.CustomLabels.Add(start, end, label);
             }
 
@@ -68,7 +68,9 @@ namespace laboratornaya_rabota_20
             }
 
             string[] lines = File.ReadAllLines(path);
-            double[] visualIntervals = { 0, 1, 2, 3, 4, 5, 6, 7, 8 }; // Визуальные интервалы
+            double[] visualIntervals = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+
+            double seriesNumber = -1.0;
 
             foreach (string line in lines)
             {
@@ -89,39 +91,35 @@ namespace laboratornaya_rabota_20
                         double.TryParse(coordinates[0], NumberStyles.Float, CultureInfo.InvariantCulture, out double x) &&
                         double.TryParse(coordinates[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double y))
                     {
-                        // Преобразование X в визуальный интервал
+                       
                         double transformedX = TransformToVisualX(x, realIntervals, visualIntervals);
                         series.Points.AddXY(transformedX, y);
                     }
                 }
                 mainChart.Series.Add(series);
+                DataPoint thirdPoint = series.Points[2]; 
+                TextAnnotation annotation = new TextAnnotation
+                {
+                    Text = $"{Math.Round(seriesNumber, 2)}",
+                    ForeColor = Color.Red,
+                    Font = new Font("Arial", 6),
+                    AnchorDataPoint = thirdPoint, 
+                    Y = thirdPoint.YValues[0] + 0.1 
+                };
+
+                mainChart.Annotations.Add(annotation);
+
+                seriesNumber+=0.05; 
             }
-            TextAnnotation textAnnotation = new TextAnnotation
-            {
-                X = 40,
-                Y = 0.5,
-                Text = "-1.0",
-                ForeColor = Color.Red, // Цвет текста
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                Alignment = ContentAlignment.MiddleCenter
-            };
-
-            // Привязка аннотации к области графика (ChartArea)
-            //textAnnotation.AnchorX = 40.0; // Координата X в масштабе графика
-            //textAnnotation.AnchorY = 0.1;  // Координата Y в масштабе графика
-            //textAnnotation.AxisX = mainChart.ChartAreas[0].AxisX; // Привязка к оси X
-            //textAnnotation.AxisY = mainChart.ChartAreas[0].AxisY; // Привязка к оси Y
-
-            // Добавление аннотации на график
-            mainChart.Annotations.Add(textAnnotation);
+           
         }
 
         private void showSelectedRow_Click(object sender, EventArgs e)
         {
             mainChart.Series.Clear();
             mainChart.ChartAreas.Clear();
+            mainChart.Annotations.Clear();
 
-            // Настройка области графика
             ChartArea chartArea = new ChartArea
             {
                 AxisY =
@@ -132,7 +130,6 @@ namespace laboratornaya_rabota_20
             }
             };
 
-            // Визуальная настройка оси X
             chartArea.AxisX.Minimum = 0;
             chartArea.AxisX.Maximum = 8;
             chartArea.AxisX.Interval = 1;
@@ -144,13 +141,13 @@ namespace laboratornaya_rabota_20
 
             mainChart.ChartAreas.Add(chartArea);
 
-            // Установка пользовательских меток для оси X
-            double[] realIntervals = { 0, 20, 30, 40, 50, 60, 70, 80, 90 }; // Настоящие интервалы
+         
+            double[] realIntervals = { 0, 20, 30, 40, 50, 60, 70, 80, 90 }; 
             for (int i = 0; i < realIntervals.Length - 1; i++)
             {
                 string label = $"{realIntervals[i]}";
-                double start = i - 0.5; // Начало диапазона метки
-                double end = i + 0.5;   // Конец диапазона метки
+                double start = i - 0.5; 
+                double end = i + 0.5;  
                 chartArea.AxisX.CustomLabels.Add(start, end, label);
             }
 
@@ -164,14 +161,8 @@ namespace laboratornaya_rabota_20
 
             string[] lines = File.ReadAllLines(path);
 
-            // Получить выбранный номер из ComboBox
-            if (lineSelector.SelectedItem == null || !int.TryParse(lineSelector.SelectedItem.ToString(), out int index) || index < 1 || index > lines.Length)
-            {
-                MessageBox.Show("Некорректный номер строки. Убедитесь, что он входит в диапазон.");
-                return;
-            }
-
-            string line = lines[index - 1];
+            int index = lineSelector.SelectedIndex;
+            string line = lines[index];
             Series series = new Series
             {
                 ChartType = SeriesChartType.Line,
@@ -179,8 +170,7 @@ namespace laboratornaya_rabota_20
                 Color = Color.Black
             };
 
-            double[] visualIntervals = { 0, 1, 2, 3, 4, 5, 6, 7, 8 }; // Визуальные интервалы
-
+            double[] visualIntervals = { 0, 1, 2, 3, 4, 5, 6, 7, 8 }; 
             string[] points = line.Split(';');
 
             foreach (string point in points)
@@ -191,13 +181,24 @@ namespace laboratornaya_rabota_20
                     double.TryParse(coordinates[0], NumberStyles.Float, CultureInfo.InvariantCulture, out double x) &&
                     double.TryParse(coordinates[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double y))
                 {
-                    // Преобразование X в визуальный интервал
+                   
                     double transformedX = TransformToVisualX(x, realIntervals, visualIntervals);
                     series.Points.AddXY(transformedX, y);
                 }
             }
-
+            
             mainChart.Series.Add(series);
+            DataPoint thirdPoint = series.Points[2];
+            TextAnnotation annotation = new TextAnnotation
+            {
+                Text = lineSelector.Items[lineSelector.SelectedIndex].ToString(),
+                ForeColor = Color.Red,
+                Font = new Font("Arial", 6),
+                AnchorDataPoint = thirdPoint,
+                Y = thirdPoint.YValues[0] + 0.1
+            };
+
+            mainChart.Annotations.Add(annotation);
         }
 
 
