@@ -17,16 +17,24 @@ namespace laboratornaya_rabota_19
         public List<Child> childrenList;
         public List<Teacher> teachersList;
         public List<Schedule> scheduleList;
-        public string[] listOfGroups = {"Ясли", "Гуппа 1", "Группа 2", "Группа 3"};
+        public string[] listOfGroups = { "показывать список детей указанной группы",
+        "показывать список детей указанного возраста",
+        "показывать занятость указанного воспитателя",
+        "показывать занятость указанной группы в указанный день недели",
+        "показывать процентное отношение мальчиков и девочек в указанной группе",
+        "находить название (и/или №) группы по Ф.И.О. ребёнка"};
 
         public laboratornaya_rabota_19()
         {
             InitializeComponent();
-            selectGroup.Items.AddRange(listOfGroups);
-            foreach (var teacher in teachersList)
-            {
-                comboBoxTeachers.Items.Add(teacher.Name);
-            }
+
+            childrenList = new List<Child>();
+            teachersList = new List<Teacher>();
+            scheduleList = new List<Schedule>();
+
+            LoadDataFromCsv();
+
+            selectFilter.Items.AddRange(listOfGroups);
         }
         private void LoadDataFromCsv()
         {
@@ -40,7 +48,11 @@ namespace laboratornaya_rabota_19
             for (int i = 0; i < childrenLines.Length; i++) // начинаем с 0 строки
             {
                 string[] data = childrenLines[i].Split(';');
-                childrenList.Add(new Child(data[0], int.Parse(data[1]), data[2], data[3]));
+                childrenList.Add(new Child(int.Parse(data[0]),
+                    data[1],
+                    int.Parse(data[2]),
+                    data[3],
+                    data[4]));
             }
 
             // Загрузка данных о воспитателях
@@ -48,29 +60,23 @@ namespace laboratornaya_rabota_19
             for (int i = 0; i < teachersLines.Length; i++)
             {
                 string[] data = teachersLines[i].Split(';');
-                teachersList.Add(new Teacher(data[0], data[1], data[2]));
+                teachersList.Add(new Teacher(
+                    int.Parse(data[0]),
+                    data[1],
+                    data[2],
+                    data[3],
+                    data[4]));
             }
-
-            // Загрузка данных о расписании
+                // Загрузка данных о расписании
             string[] scheduleLines = File.ReadAllLines("schedule.csv");
             for (int i = 0; i < scheduleLines.Length; i++)
             {
-                // Проверяем строку и выводим её для отладки
-                Console.WriteLine($"Строка {i + 1}: {scheduleLines[i]}");
-
                 string[] data = scheduleLines[i].Split(';');
-
-                // Проверка длины массива после Split
-                Console.WriteLine($"Количество элементов в строке: {data.Length}");
-
-                if (data.Length == 5) // Проверяем, что строка корректно разделилась
-                {
-                    scheduleList.Add(new Schedule(data[0], data[1], data[2], data[3], data[4]));
-                }
-                else
-                {
-                    MessageBox.Show($"Ошибка в строке {i + 1}: {scheduleLines[i]}\nКоличество элементов: {data.Length}");
-                }
+                scheduleList.Add(new Schedule(data[0],
+                    data[1],
+                    data[2],
+                    data[3],
+                    data[4]));
             }
 
         }
@@ -80,49 +86,103 @@ namespace laboratornaya_rabota_19
                                   where child.Group == groupName
                                   select child;
 
-            listOfChildren.Items.Clear();
+            resultList.Items.Clear();
 
             // Добавляем детей в ListBox
             foreach (var child in childrenInGroup)
             {
-                listOfChildren.Items.Add(child.ToString());
+                resultList.Items.Add(child.ToString());
             }
         }
-        private void selectGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadDataFromCsv();
-            string selectedGroup = selectGroup.SelectedItem.ToString();
-            ShowChildrenByGroup(selectedGroup);
 
+        private void filter_Click(object sender, EventArgs e)
+        {
+            switch (selectFilter.SelectedItem.ToString())
+            {
+                case "показывать список детей указанного возраста":
+                    firstRequest();
+                    break;
+                case "показывать список детей указанной группы":
+                    secondRequest(); 
+                    break;
+                case "показывать занятость указанного воспитателя":
+                    thirdRequest();
+                    break;
+                default:
+                    break;
+
+            }
+            //firstRequest();
         }
-
-        private void numericUpDownAge_ValueChanged(object sender, EventArgs e)
+        private void firstRequest()
         {
-            LoadDataFromCsv();
-            int selectedAge = (int)numericUpDownAge.Value;
+            string selectedFilter = selectFilter.SelectedItem.ToString();
+            resultList.Items.Clear();
+
+            if (selectedFilter == "показывать список детей указанного возраста")
+            {
+                int selectedAge;
+
+                if (int.TryParse(parameterFilter.Text, out selectedAge))
+                {
+                    var filteredChildren = childrenList.Where(child => child.Age == selectedAge).ToList();
+
+                    foreach (var child in filteredChildren)
+                    {
+                        resultList.Items.Add($"ID: {child.Id}, Имя: {child.Name}, Возраст: {child.Age}, Пол: {child.Gender}, Группа: {child.Group}");
+                    }
+
+                    if (filteredChildren.Count == 0)
+                    {
+                        resultList.Items.Add("Дети указанного возраста не найдены.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Введите корректный возраст!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void secondRequest()
+        {
+            string selectedGroup = parameterFilter.Text.Trim();
+
             var filteredChildren = childrenList
-                .Where(child => child.Age == selectedAge) 
+                .Where(child => child.Group.Equals(selectedGroup, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
-            // Очистка и обновление ListBox
-            listOfChildren.Items.Clear();
+            resultList.Items.Clear();
 
-            if (filteredChildren.Count > 0)
+            if (filteredChildren.Count == 0)
             {
-                foreach (var child in filteredChildren)
-                {
-                    listOfChildren.Items.Add(child.ToString());
-                }
+                resultList.Items.Add($"Дети из группы '{selectedGroup}' не найдены.");
+                return;
+            }
+
+            foreach (var child in filteredChildren)
+            {
+                resultList.Items.Add($"ID: {child.Id}, Имя: {child.Name}, Возраст: {child.Age}, Группа: {child.Group}");
+            }
+        }
+        private void thirdRequest()
+        {
+            resultList.Items.Clear();
+
+            // Выполняем запрос LINQ для поиска воспитателя
+            var teacher = teachersList.FirstOrDefault(t => t.Name == Name);
+
+            // Проверка, найден ли воспитатель
+            if (teacher != null)
+            {
+                resultList.Items.Add($"Занятость для: {teacher.Name}");
+                resultList.Items.Add($"Смена: {teacher.Shift}");
+                resultList.Items.Add($"Группа: {teacher.Group}");
+                resultList.Items.Add($"Расписание: {teacher.Schedule}");
             }
             else
             {
-                listOfChildren.Items.Add("Детей с указанным возрастом не найдено");
+                resultList.Items.Add("Воспитатель не найден.");
             }
-        }
-
-        private void comboBoxTeachers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

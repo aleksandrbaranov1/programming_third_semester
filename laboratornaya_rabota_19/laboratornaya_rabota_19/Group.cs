@@ -8,6 +8,7 @@ namespace laboratornaya_rabota_19
 {
     public class Group
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string MorningTeacher { get; set; }
         public string EveningTeacher { get; set; }
@@ -16,8 +17,9 @@ namespace laboratornaya_rabota_19
 
         public Group() { }
 
-        public Group(string name, string morningTeacher, string eveningTeacher, string nanny, int childrenCount)
+        public Group(int id, string name, string morningTeacher, string eveningTeacher, string nanny, int childrenCount)
         {
+            Id = id;
             Name = name;
             MorningTeacher = morningTeacher;
             EveningTeacher = eveningTeacher;
