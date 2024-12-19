@@ -44,15 +44,15 @@
             // 
             this.mainChart.Location = new System.Drawing.Point(12, 12);
             this.mainChart.Name = "mainChart";
-            this.mainChart.Size = new System.Drawing.Size(1019, 430);
+            this.mainChart.Size = new System.Drawing.Size(1222, 501);
             this.mainChart.TabIndex = 0;
             this.mainChart.Text = "chart1";
             // 
             // showAllRows
             // 
-            this.showAllRows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.showAllRows.BackColor = System.Drawing.Color.LightCyan;
             this.showAllRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.showAllRows.Location = new System.Drawing.Point(162, 89);
+            this.showAllRows.Location = new System.Drawing.Point(225, 90);
             this.showAllRows.Name = "showAllRows";
             this.showAllRows.Size = new System.Drawing.Size(175, 57);
             this.showAllRows.TabIndex = 1;
@@ -62,9 +62,9 @@
             // 
             // showSelectedRow
             // 
-            this.showSelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.showSelectedRow.BackColor = System.Drawing.Color.LightCyan;
             this.showSelectedRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.showSelectedRow.Location = new System.Drawing.Point(161, 89);
+            this.showSelectedRow.Location = new System.Drawing.Point(203, 90);
             this.showSelectedRow.Name = "showSelectedRow";
             this.showSelectedRow.Size = new System.Drawing.Size(192, 57);
             this.showSelectedRow.TabIndex = 2;
@@ -75,7 +75,7 @@
             // lineSelector
             // 
             this.lineSelector.FormattingEnabled = true;
-            this.lineSelector.Location = new System.Drawing.Point(161, 41);
+            this.lineSelector.Location = new System.Drawing.Point(203, 42);
             this.lineSelector.Name = "lineSelector";
             this.lineSelector.Size = new System.Drawing.Size(192, 24);
             this.lineSelector.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(137, 18);
+            this.label1.Location = new System.Drawing.Point(179, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 20);
             this.label1.TabIndex = 4;
@@ -93,9 +93,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.showAllRows);
-            this.groupBox1.Location = new System.Drawing.Point(12, 448);
+            this.groupBox1.Location = new System.Drawing.Point(12, 519);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(505, 183);
+            this.groupBox1.Size = new System.Drawing.Size(610, 168);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
@@ -104,9 +104,9 @@
             this.groupBox2.Controls.Add(this.showSelectedRow);
             this.groupBox2.Controls.Add(this.lineSelector);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(523, 448);
+            this.groupBox2.Location = new System.Drawing.Point(628, 519);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(508, 183);
+            this.groupBox2.Size = new System.Drawing.Size(606, 168);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1043, 643);
+            this.ClientSize = new System.Drawing.Size(1246, 699);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainChart);

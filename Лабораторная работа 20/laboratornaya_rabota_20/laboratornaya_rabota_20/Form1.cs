@@ -59,15 +59,13 @@ namespace laboratornaya_rabota_20
                 chartArea.AxisX.CustomLabels.Add(start, end, label);
             }
 
-            string path = @"C:\\Users\\sabba\\OneDrive\\Рабочий стол\\programming_third_semester\\programming_third_semester\\Лабораторная работа 20\\laboratornaya_rabota_20\\laboratornaya_rabota_20\\bin\\Debug\\points.csv";
-
-            if (!File.Exists(path))
+            if (!File.Exists("points.csv"))
             {
-                MessageBox.Show($"Файл {path} не найден.");
+                MessageBox.Show($"Файл не найден.");
                 return;
             }
 
-            string[] lines = File.ReadAllLines(path);
+            string[] lines = File.ReadAllLines("points.csv");
             double[] visualIntervals = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
 
             double seriesNumber = -1.0;
@@ -102,7 +100,7 @@ namespace laboratornaya_rabota_20
                 {
                     Text = $"{Math.Round(seriesNumber, 2)}",
                     ForeColor = Color.Red,
-                    Font = new Font("Arial", 6),
+                    Font = new Font("Arial", 7),
                     AnchorDataPoint = thirdPoint, 
                     Y = thirdPoint.YValues[0] + 0.1 
                 };
@@ -151,15 +149,15 @@ namespace laboratornaya_rabota_20
                 chartArea.AxisX.CustomLabels.Add(start, end, label);
             }
 
-            string path = @"C:\\Users\\sabba\\OneDrive\\Рабочий стол\\programming_third_semester\\programming_third_semester\\Лабораторная работа 20\\laboratornaya_rabota_20\\laboratornaya_rabota_20\\bin\\Debug\\points.csv";
+           
 
-            if (!File.Exists(path))
+            if (!File.Exists("points.csv"))
             {
-                MessageBox.Show($"Файл {path} не найден.");
+                MessageBox.Show($"Файл не найден.");
                 return;
             }
 
-            string[] lines = File.ReadAllLines(path);
+            string[] lines = File.ReadAllLines("points.csv");
 
             int index = lineSelector.SelectedIndex;
             string line = lines[index];
@@ -182,8 +180,8 @@ namespace laboratornaya_rabota_20
                     double.TryParse(coordinates[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double y))
                 {
                    
-                    double transformedX = TransformToVisualX(x, realIntervals, visualIntervals);
-                    series.Points.AddXY(transformedX, y);
+                        double transformedX = TransformToVisualX(x, realIntervals, visualIntervals);
+                        series.Points.AddXY(transformedX, y);
                 }
             }
             
@@ -193,7 +191,7 @@ namespace laboratornaya_rabota_20
             {
                 Text = lineSelector.Items[lineSelector.SelectedIndex].ToString(),
                 ForeColor = Color.Red,
-                Font = new Font("Arial", 6),
+                Font = new Font("Arial", 7),
                 AnchorDataPoint = thirdPoint,
                 Y = thirdPoint.YValues[0] + 0.1
             };
