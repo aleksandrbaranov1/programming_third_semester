@@ -1,36 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace laboratornaya_rabota_19
+﻿public class Group
 {
-    public class Group
+    public int GroupId { get; set; }
+    public string GroupName { get; set; }
+    public string DayOfWeek { get; set; }
+    public string Time { get; set; }
+    public string Activity { get; set; }
+    public string Location { get; set; }
+    public int ChildrenCount { get; set; }
+    public string WalkSchedule { get; set; }
+
+    public Group(int groupId, string groupName, string dayOfWeek, string time, string activity, string location, int childrenCount, string walkSchedule)
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string MorningTeacher { get; set; }
-        public string EveningTeacher { get; set; }
-        public string Nanny { get; set; }
-        public int ChildrenCount { get; set; }
-
-        public Group() { }
-
-        public Group(int id, string name, string morningTeacher, string eveningTeacher, string nanny, int childrenCount)
-        {
-            Id = id;
-            Name = name;
-            MorningTeacher = morningTeacher;
-            EveningTeacher = eveningTeacher;
-            Nanny = nanny;
-            ChildrenCount = childrenCount;
-        }
-
-        public override string ToString()
-        {
-            return $"Группа: {Name}, Утренний воспитатель: {MorningTeacher}, Вечерний воспитатель: {EveningTeacher}, Нянечка: {Nanny}, Кол-во детей: {ChildrenCount}";
-        }
-
+        GroupId = groupId;
+        GroupName = groupName;
+        DayOfWeek = dayOfWeek;
+        Time = time;
+        Activity = activity;
+        Location = location;
+        ChildrenCount = childrenCount;
+        WalkSchedule = walkSchedule;
     }
 }

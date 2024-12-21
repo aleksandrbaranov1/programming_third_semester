@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -17,12 +13,15 @@ namespace laboratornaya_rabota_19
         public List<Child> childrenList;
         public List<Teacher> teachersList;
         public List<Schedule> scheduleList;
+        public List<Group> groupList;
         public string[] listOfGroups = { "показывать список детей указанной группы",
         "показывать список детей указанного возраста",
         "показывать занятость указанного воспитателя",
         "показывать занятость указанной группы в указанный день недели",
         "показывать процентное отношение мальчиков и девочек в указанной группе",
         "находить название (и/или №) группы по Ф.И.О. ребёнка"};
+
+        public string[] days = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
 
         public laboratornaya_rabota_19()
         {
@@ -35,17 +34,18 @@ namespace laboratornaya_rabota_19
             LoadDataFromCsv();
 
             selectFilter.Items.AddRange(listOfGroups);
+            choiceOfDay.Items.AddRange(days);
+
         }
         private void LoadDataFromCsv()
         {
-            // Инициализация списков
             childrenList = new List<Child>();
             teachersList = new List<Teacher>();
             scheduleList = new List<Schedule>();
+            groupList = new List<Group>();
 
-            // Загрузка данных о детях
             string[] childrenLines = File.ReadAllLines("children.txt");
-            for (int i = 0; i < childrenLines.Length; i++) // начинаем с 0 строки
+            for (int i = 0; i < childrenLines.Length; i++) 
             {
                 string[] data = childrenLines[i].Split(';');
                 childrenList.Add(new Child(int.Parse(data[0]),
@@ -55,8 +55,7 @@ namespace laboratornaya_rabota_19
                     data[4]));
             }
 
-            // Загрузка данных о воспитателях
-            string[] teachersLines = File.ReadAllLines("teachers.csv");
+            string[] teachersLines = File.ReadAllLines("teachers.csv", Encoding.Default);
             for (int i = 0; i < teachersLines.Length; i++)
             {
                 string[] data = teachersLines[i].Split(';');
@@ -67,7 +66,7 @@ namespace laboratornaya_rabota_19
                     data[3],
                     data[4]));
             }
-                // Загрузка данных о расписании
+     
             string[] scheduleLines = File.ReadAllLines("schedule.csv");
             for (int i = 0; i < scheduleLines.Length; i++)
             {
@@ -78,43 +77,51 @@ namespace laboratornaya_rabota_19
                     data[3],
                     data[4]));
             }
-
-        }
-        private void ShowChildrenByGroup(string groupName)
-        {
-            var childrenInGroup = from child in childrenList
-                                  where child.Group == groupName
-                                  select child;
-
-            resultList.Items.Clear();
-
-            // Добавляем детей в ListBox
-            foreach (var child in childrenInGroup)
+            string[] groupLines = File.ReadAllLines("groups.csv", Encoding.Default);
+            for (int i = 0; i < groupLines.Length; i++)
             {
-                resultList.Items.Add(child.ToString());
+                string[] data = groupLines[i].Split(';');
+                groupList.Add(new Group(
+                    int.Parse(data[0]),
+                    data[1],
+                    data[2],  
+                    data[3],  
+                    data[4], 
+                    data[5],  
+                    int.Parse(data[6]),  
+                    data[7]  
+                ));
             }
+            choiceOfDay.Enabled = false;
         }
-
         private void filter_Click(object sender, EventArgs e)
         {
             switch (selectFilter.SelectedItem.ToString())
             {
                 case "показывать список детей указанного возраста":
-                    firstRequest();
+                    ShowChildrenByGroup();
                     break;
                 case "показывать список детей указанной группы":
-                    secondRequest(); 
+                    ShowChildrenByAge(); 
                     break;
                 case "показывать занятость указанного воспитателя":
-                    thirdRequest();
+                    ShowTeacherSchedulet();
+                    break;
+                case "показывать занятость указанной группы в указанный день недели":
+                    ShowGroupScheduleByDay();
+                    break;
+                case "показывать процентное отношение мальчиков и девочек в указанной группе":
+                    ShowGenderRatio();
+                    break;
+                case "находить название (и/или №) группы по Ф.И.О. ребёнка":
+                    FindGroupByChildName();
                     break;
                 default:
                     break;
 
             }
-            //firstRequest();
         }
-        private void firstRequest()
+        private void ShowChildrenByGroup()
         {
             string selectedFilter = selectFilter.SelectedItem.ToString();
             resultList.Items.Clear();
@@ -143,7 +150,7 @@ namespace laboratornaya_rabota_19
                 }
             }
         }
-        private void secondRequest()
+        private void ShowChildrenByAge()
         {
             string selectedGroup = parameterFilter.Text.Trim();
 
@@ -164,14 +171,14 @@ namespace laboratornaya_rabota_19
                 resultList.Items.Add($"ID: {child.Id}, Имя: {child.Name}, Возраст: {child.Age}, Группа: {child.Group}");
             }
         }
-        private void thirdRequest()
+        private void ShowTeacherSchedulet()
         {
             resultList.Items.Clear();
 
-            // Выполняем запрос LINQ для поиска воспитателя
-            var teacher = teachersList.FirstOrDefault(t => t.Name == Name);
+            var enteredName = parameterFilter.Text;
 
-            // Проверка, найден ли воспитатель
+            var teacher = teachersList.FirstOrDefault(t => t.Name.Equals(enteredName, StringComparison.OrdinalIgnoreCase));
+
             if (teacher != null)
             {
                 resultList.Items.Add($"Занятость для: {teacher.Name}");
@@ -182,6 +189,71 @@ namespace laboratornaya_rabota_19
             else
             {
                 resultList.Items.Add("Воспитатель не найден.");
+            }
+        }
+        private void ShowGroupScheduleByDay()
+        {
+            resultList.Items.Clear();
+            
+            string group = parameterFilter.Text;
+            string dayOfWeek = choiceOfDay.SelectedItem.ToString();
+
+            var schedule = groupList
+                .Where(g => g.GroupName == group && g.DayOfWeek == dayOfWeek)
+                .ToList();
+
+            foreach (var item in schedule)
+            {
+                resultList.Items.Add($"{item.Time}: {item.Activity} в {item.Location}");
+            }
+        }
+        private void ShowGenderRatio()
+        {
+            resultList.Items.Clear();
+
+            string groupName = parameterFilter.Text;
+
+            var childrenInGroup = childrenList.Where(c => c.Group == groupName).ToList();
+
+            int boysCount = childrenInGroup.Count(c => c.Gender == "Мальчик");
+            int girlsCount = childrenInGroup.Count(c => c.Gender == "Девочка");
+
+            int total = boysCount + girlsCount;
+
+            double boysPercentage = (double)boysCount / total * 100;
+            double girlsPercentage = (double)girlsCount / total * 100;
+
+            resultList.Items.Add($"Группа: {groupName}");
+            resultList.Items.Add($"Мальчики: {boysPercentage:F2}%");
+            resultList.Items.Add($"Девочки: {girlsPercentage:F2}%");
+        }
+        private void FindGroupByChildName()
+        {
+            resultList.Items.Clear();
+
+            string childName = parameterFilter.Text;
+
+      
+            foreach (var child in childrenList)
+            {
+                if (child.Name.Contains(childName))
+                {
+                    resultList.Items.Add($"Ребёнок: {child.Name}");
+                    resultList.Items.Add($"Группа: {child.Group}");
+                    break; 
+                }
+            }
+        }
+
+        private void selectFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (selectFilter.SelectedItem.ToString() == "показывать занятость указанной группы в указанный день недели")
+            {
+                choiceOfDay.Enabled = true; 
+            }
+            else
+            {
+                choiceOfDay.Enabled = false; 
             }
         }
     }
