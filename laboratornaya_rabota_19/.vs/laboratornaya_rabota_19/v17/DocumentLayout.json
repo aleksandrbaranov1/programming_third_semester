@@ -82,16 +82,8 @@
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "children.txt",
-              "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\children.txt",
-              "RelativeDocumentMoniker": "laboratornaya_rabota_19\\bin\\Debug\\children.txt",
-              "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\children.txt",
-              "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\children.txt",
-              "ViewState": "AQIAABoAAAAAAAAAAAAYwCEAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-15T19:23:00.276Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
@@ -173,14 +165,22 @@
               "RelativeDocumentMoniker": "laboratornaya_rabota_19\\mainForm.cs",
               "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainForm.cs",
               "RelativeToolTip": "laboratornaya_rabota_19\\mainForm.cs",
-              "ViewState": "AQIAAI4AAAAAAAAAAAAQwJoAAAAAAAAA",
+              "ViewState": "AQIAAOcAAAAAAAAAAAAwwAUBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T17:31:18.033Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "children.txt",
+              "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\children.txt",
+              "RelativeDocumentMoniker": "laboratornaya_rabota_19\\bin\\Debug\\children.txt",
+              "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\children.txt",
+              "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\children.txt",
+              "ViewState": "AQIAABoAAAAAAAAAAAAYwCEAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-15T19:23:00.276Z"
             },
             {
               "$type": "Document",

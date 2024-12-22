@@ -35,7 +35,7 @@ namespace laboratornaya_rabota_19
 
             selectFilter.Items.AddRange(listOfGroups);
             choiceOfDay.Items.AddRange(days);
-
+            choiceOfDay.SelectedItem = days[0];
         }
         private void LoadDataFromCsv()
         {
@@ -145,23 +145,31 @@ namespace laboratornaya_rabota_19
 
         private void ShowChildrenByAge()
         {
-            string selectedGroup = parameterFilter.Text.Trim();
-
-            var filteredChildren = childrenList
-                .Where(child => child.Group.Equals(selectedGroup, StringComparison.OrdinalIgnoreCase))
-                .ToList();
-
+            string selectedFilter = selectFilter.SelectedItem.ToString();
             resultList.Items.Clear();
 
-            if (filteredChildren.Count == 0)
+            if (selectedFilter == "показывать список детей указанного возраста")
             {
-                resultList.Items.Add($"Дети из группы '{selectedGroup}' не найдены.");
-                return;
-            }
+                int selectedAge;
 
-            foreach (var child in filteredChildren)
-            {
-                resultList.Items.Add($"ID: {child.Id}, Имя: {child.Name}, Возраст: {child.Age}, Группа: {child.Group}");
+                if (int.TryParse(parameterFilter.Text, out selectedAge))
+                {
+                    var filteredChildren = childrenList.Where(child => child.Age == selectedAge).ToList();
+
+                    foreach (var child in filteredChildren)
+                    {
+                        resultList.Items.Add($"ID: {child.Id}, Имя: {child.Name}, Возраст: {child.Age}, Пол: {child.Gender}, Группа: {child.Group}");
+                    }
+
+                    if (filteredChildren.Count == 0)
+                    {
+                        resultList.Items.Add("Дети указанного возраста не найдены.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Введите корректный возраст!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void ShowTeacherSchedulet()
