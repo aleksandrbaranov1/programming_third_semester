@@ -99,10 +99,10 @@ namespace laboratornaya_rabota_19
             switch (selectFilter.SelectedItem.ToString())
             {
                 case "показывать список детей указанного возраста":
-                    ShowChildrenByGroup();
+                    ShowChildrenByAge();
                     break;
                 case "показывать список детей указанной группы":
-                    ShowChildrenByAge(); 
+                    ShowChildrenByGroup();
                     break;
                 case "показывать занятость указанного воспитателя":
                     ShowTeacherSchedulet();
@@ -123,33 +123,26 @@ namespace laboratornaya_rabota_19
         }
         private void ShowChildrenByGroup()
         {
-            string selectedFilter = selectFilter.SelectedItem.ToString();
             resultList.Items.Clear();
+            string groupFilter = parameterFilter.Text;
 
-            if (selectedFilter == "показывать список детей указанного возраста")
+            var filteredChildren = childrenList
+                .Where(child => child.Group.Contains(groupFilter))
+                .ToList();
+
+            foreach (var child in filteredChildren)
             {
-                int selectedAge;
+                resultList.Items.Add($"ФИО: {child.Name}, Возраст: {child.Age}, Пол: {child.Gender}, Группа: {child.Group}");
+            }
 
-                if (int.TryParse(parameterFilter.Text, out selectedAge))
-                {
-                    var filteredChildren = childrenList.Where(child => child.Age == selectedAge).ToList();
-
-                    foreach (var child in filteredChildren)
-                    {
-                        resultList.Items.Add($"ID: {child.Id}, Имя: {child.Name}, Возраст: {child.Age}, Пол: {child.Gender}, Группа: {child.Group}");
-                    }
-
-                    if (filteredChildren.Count == 0)
-                    {
-                        resultList.Items.Add("Дети указанного возраста не найдены.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Введите корректный возраст!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            if (!filteredChildren.Any())
+            {
+                resultList.Items.Add("Дети не найдены для указанной группы.");
             }
         }
+
+
+
         private void ShowChildrenByAge()
         {
             string selectedGroup = parameterFilter.Text.Trim();
@@ -177,7 +170,7 @@ namespace laboratornaya_rabota_19
 
             var enteredName = parameterFilter.Text;
 
-            var teacher = teachersList.FirstOrDefault(t => t.Name.Equals(enteredName, StringComparison.OrdinalIgnoreCase));
+            var teacher = teachersList.FirstOrDefault(t => t.Name.Contains(enteredName));
 
             if (teacher != null)
             {
@@ -199,12 +192,12 @@ namespace laboratornaya_rabota_19
             string dayOfWeek = choiceOfDay.SelectedItem.ToString();
 
             var schedule = groupList
-                .Where(g => g.GroupName == group && g.DayOfWeek == dayOfWeek)
+                .Where(g => g.GroupName.Contains(group) && g.DayOfWeek == dayOfWeek) //!
                 .ToList();
 
             foreach (var item in schedule)
             {
-                resultList.Items.Add($"{item.Time}: {item.Activity} в {item.Location}");
+                resultList.Items.Add($"{item.GroupName} {item.Time}: {item.Activity} в {item.Location}");
             }
         }
         private void ShowGenderRatio()
@@ -213,7 +206,7 @@ namespace laboratornaya_rabota_19
 
             string groupName = parameterFilter.Text;
 
-            var childrenInGroup = childrenList.Where(c => c.Group == groupName).ToList();
+            var childrenInGroup = childrenList.Where(c => c.Group.Contains(groupName)).ToList();
 
             int boysCount = childrenInGroup.Count(c => c.Gender == "Мальчик");
             int girlsCount = childrenInGroup.Count(c => c.Gender == "Девочка");
