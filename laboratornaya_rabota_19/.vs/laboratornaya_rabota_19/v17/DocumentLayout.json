@@ -91,8 +91,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\children.txt",
               "ViewState": "AQIAABoAAAAAAAAAAAAYwCEAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-15T19:23:00.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T19:23:00.276Z"
             },
             {
               "$type": "Document",
@@ -104,8 +103,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-12-15T19:28:09.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T19:28:09.542Z"
             },
             {
               "$type": "Document",
@@ -117,8 +115,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\groups.csv",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-12-16T07:42:07.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T07:42:07.611Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\Child.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T17:57:59.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T17:57:59.748Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\children.csv",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-12-22T20:13:02.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T20:13:02.266Z"
             },
             {
               "$type": "Document",
@@ -156,8 +151,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\Group.cs",
               "ViewState": "AQIAAAQAAAAAAAAAAAAzwA4AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T17:43:14.301Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T17:43:14.301Z"
             },
             {
               "$type": "Document",
@@ -169,8 +163,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\schedule.csv",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-12-15T19:31:11.596Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T19:31:11.596Z"
             },
             {
               "$type": "Document",
@@ -180,10 +173,14 @@
               "RelativeDocumentMoniker": "laboratornaya_rabota_19\\mainForm.cs",
               "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainForm.cs",
               "RelativeToolTip": "laboratornaya_rabota_19\\mainForm.cs",
-              "ViewState": "AQIAAOAAAAAAAAAAAAAowP0AAAAAAAAA",
+              "ViewState": "AQIAAI4AAAAAAAAAAAAQwJoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T17:31:18.033Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
@@ -195,12 +192,7 @@
               "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\children",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-15T19:22:53.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2024-12-15T19:22:53.965Z"
             },
             {
               "$type": "Document",
