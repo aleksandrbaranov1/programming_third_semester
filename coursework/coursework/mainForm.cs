@@ -11,7 +11,6 @@ namespace coursework
 {
     public partial class mainForm : Form
     {
-        // Объявляем переменную для хранения пути к выбранному документу
         private string selectedWordDocument;
         private string pathToCSV = @"C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\exportData.csv";
         public mainForm()
@@ -116,17 +115,17 @@ namespace coursework
                             {
 
                                 string cellData = cells[j - 1];
-                                string[] parts = cellData.Split('%'); // Разделяем текст по символу %
+                                string[] parts = cellData.Split('%'); 
 
-                                // Очищаем содержимое ячейки
+                              
                                 Word.Cell cell = table.Cell(currentRow + 1, j);
-                                cell.Range.Text = ""; // Удаляем предыдущее содержимое
+                                cell.Range.Text = ""; 
 
-                                // Добавляем каждую часть как отдельный абзац
+
                                 foreach (string part in parts)
                                 {
                                     Word.Paragraph paragraph = cell.Range.Paragraphs.Add();
-                                    paragraph.Range.Text = part.Trim(); // Убираем лишние пробелы
+                                    paragraph.Range.Text = part.Trim();
                                 }
                             }
                         }
