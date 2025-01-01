@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50FAE1B9-70B5-4BB2-BA8C-6B5812CE4725}|laboratornaya_rabota_19\\laboratornaya_rabota_19.csproj|c:\\users\\sabba\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50FAE1B9-70B5-4BB2-BA8C-6B5812CE4725}|laboratornaya_rabota_19\\laboratornaya_rabota_19.csproj|solutionrelative:laboratornaya_rabota_19\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{50FAE1B9-70B5-4BB2-BA8C-6B5812CE4725}|laboratornaya_rabota_19\\laboratornaya_rabota_19.csproj|C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{50FAE1B9-70B5-4BB2-BA8C-6B5812CE4725}|laboratornaya_rabota_19\\laboratornaya_rabota_19.csproj|solutionrelative:laboratornaya_rabota_19\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50FAE1B9-70B5-4BB2-BA8C-6B5812CE4725}|laboratornaya_rabota_19\\laboratornaya_rabota_19.csproj|c:\\users\\sabba\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50FAE1B9-70B5-4BB2-BA8C-6B5812CE4725}|laboratornaya_rabota_19\\laboratornaya_rabota_19.csproj|solutionrelative:laboratornaya_rabota_19\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\children.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -66,11 +66,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "mainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainForm.cs",
               "RelativeDocumentMoniker": "laboratornaya_rabota_19\\mainForm.cs",
@@ -84,18 +84,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "teachers.csv",
-              "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
-              "RelativeDocumentMoniker": "laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
-              "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
-              "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-12-15T19:28:09.542Z"
             },
             {
               "$type": "Document",
@@ -135,6 +123,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "mainForm.cs",
+              "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainForm.cs",
+              "RelativeDocumentMoniker": "laboratornaya_rabota_19\\mainForm.cs",
+              "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainForm.cs",
+              "RelativeToolTip": "laboratornaya_rabota_19\\mainForm.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAuwF4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T17:31:18.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "teachers.csv",
+              "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
+              "RelativeDocumentMoniker": "laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
+              "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
+              "RelativeToolTip": "laboratornaya_rabota_19\\bin\\Debug\\teachers.csv",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2024-12-15T19:28:09.542Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Group.cs",
               "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\Group.cs",
@@ -156,19 +169,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
               "WhenOpened": "2024-12-15T19:31:11.596Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "mainForm.cs",
-              "DocumentMoniker": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainForm.cs",
-              "RelativeDocumentMoniker": "laboratornaya_rabota_19\\mainForm.cs",
-              "ToolTip": "C:\\Users\\sabba\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\programming_third_semester\\programming_third_semester\\laboratornaya_rabota_19\\laboratornaya_rabota_19\\mainForm.cs",
-              "RelativeToolTip": "laboratornaya_rabota_19\\mainForm.cs",
-              "ViewState": "AQIAAOcAAAAAAAAAAAAwwAUBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T17:31:18.033Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
