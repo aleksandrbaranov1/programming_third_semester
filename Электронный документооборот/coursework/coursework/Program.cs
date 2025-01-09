@@ -16,11 +16,7 @@ namespace coursework
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD:Электронный документооборот/coursework/coursework/Program.cs
             Application.Run(new mainForm());
-=======
-            Application.Run(new frmMain());
->>>>>>> fc81575d189eb02a5c0f8be11cad6c5fe7bfda51:coursework/coursework/Program.cs
         }
     }
 }
