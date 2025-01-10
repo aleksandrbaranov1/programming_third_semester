@@ -11,3 +11,16 @@ C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\progr
 C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\obj\Debug\coursework.csproj.ResolveComReference.cache
 C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\bin\Debug\ExcelHelpers.dll
 C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\coursework\coursework\obj\Debug\coursework.csproj.Up2Date
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\bin\Debug\coursework.exe.config
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\bin\Debug\coursework.exe
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\bin\Debug\coursework.pdb
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\bin\Debug\ExcelHelpers.dll
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.csproj.AssemblyReference.cache
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.csproj.ResolveComReference.cache
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.mainForm.resources
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.Properties.Resources.resources
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.csproj.GenerateResource.cache
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.csproj.CoreCompileInputs.cache
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.csproj.Up2Date
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.exe
+C:\Users\sabba\OneDrive\Рабочий стол\programming_third_semester\programming_third_semester\Электронный документооборот\coursework\coursework\obj\Debug\coursework.pdb
